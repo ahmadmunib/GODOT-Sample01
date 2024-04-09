@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dp4bklqr817oy"]
+
+[ext_resource type="Texture2D" uid="uid://c63n7333x8hrl" path="res://assets/End (Pressed) (64x64).png" id="1_6mexb"]
+[ext_resource type="Script" path="res://scenes/trophy.gd" id="1_n38kj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1neh"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xu3o"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd2p0"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwdyp"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgky4"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g8t7"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8phkd"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaf5v"]
+atlas = ExtResource("1_6mexb")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_immrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1neh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xu3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd2p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwdyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgky4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g8t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8phkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaf5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oui51"]
+size = Vector2(71, 59)
+
+[node name="Trophy" type="Area2D"]
+script = ExtResource("1_n38kj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(18.5, 18.5)
+scale = Vector2(1.57812, 1.57812)
+sprite_frames = SubResource("SpriteFrames_immrp")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18.5, 39.5)
+shape = SubResource("RectangleShape2D_oui51")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
