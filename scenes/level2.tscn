@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cww846b4o8g2y" path="res://scenes/collectable.tscn" id="5_6guae"]
 [ext_resource type="PackedScene" uid="uid://dp4bklqr817oy" path="res://scenes/trophy.tscn" id="6_6hrd0"]
 [ext_resource type="PackedScene" uid="uid://bcfxmb1d4ystw" path="res://scenes/main_menu.tscn" id="7_6eatf"]
-[ext_resource type="Texture2D" uid="uid://daexuft7aslri" path="res://assets/Back.png" id="8_bpgay"]
+[ext_resource type="PackedScene" uid="uid://4xxs87nn86p3" path="res://scenes/ui.tscn" id="8_xabp0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ycri"]
 texture = ExtResource("3_6653d")
@@ -526,64 +526,4 @@ position = Vector2(1472, 429)
 position = Vector2(2278, 491)
 target_level = ExtResource("7_6eatf")
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="UI"]
-offset_left = 18.0
-offset_top = 18.0
-offset_right = 267.0
-offset_bottom = 84.0
-
-[node name="PointsLabel" type="Label" parent="UI/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Points: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="Panel" parent="UI"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -148.0
-offset_right = 374.0
-grow_vertical = 0
-
-[node name="left" type="TouchScreenButton" parent="UI/Panel2"]
-texture_filter = 1
-position = Vector2(33, 10)
-scale = Vector2(8.73333, 7.3125)
-texture_normal = ExtResource("8_bpgay")
-action = "ct_left"
-
-[node name="right" type="TouchScreenButton" parent="UI/Panel2"]
-texture_filter = 1
-position = Vector2(313, 128)
-rotation = -3.14159
-scale = Vector2(8.73333, 7.3125)
-texture_normal = ExtResource("8_bpgay")
-action = "ct_right"
-
-[node name="Panel3" type="Panel" parent="UI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -374.0
-offset_top = -148.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="jump" type="TouchScreenButton" parent="UI/Panel3"]
-texture_filter = 1
-position = Vector2(89, 24)
-rotation = -6.28319
-scale = Vector2(3.16239, 1.37367)
-texture_normal = ExtResource("2_33oqf")
-action = "ct_jump"
+[node name="UI" parent="." instance=ExtResource("8_xabp0")]
